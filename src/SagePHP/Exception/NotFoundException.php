@@ -1,0 +1,3 @@
+<?php
+
+namespace SagePHP\Exception;
