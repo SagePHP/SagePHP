@@ -1,13 +1,12 @@
 <?php
 
-use SagePHP\File\File;
-use SagePHP\Coniguration\IniFile;
+use SagePHP\Configuration\IniFile;
 
 class IniFileTest extends \PHPUnit_Framework_TestCase
 {
     function test_has_method_with_existing_value_without_section()
     {
-        $file = $this->getMock('File', array('load', 'save'));
+        $file = $this->getMock('SagePHP\File\File', array('load', 'save'), array(''));
  
         $fileContents = array(
             'section-1' => array(
@@ -22,7 +21,7 @@ class IniFileTest extends \PHPUnit_Framework_TestCase
                  ->method('load')
                  ->will($this->returnValue($fileContents));
  
-        $iniFile = new IniFile($File);
+        $iniFile = new IniFile($file);
  
         $this->assertTrue($iniFile->has('property-3'));        
     }
