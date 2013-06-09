@@ -4,14 +4,24 @@ use SagePHP\Configuration\IniFile;
 
 class IniFileTest extends \PHPUnit_Framework_TestCase
 {
-    function test_has_method_with_existing_value_without_section()
+    private $iniFile;
+
+    function setUp()
     {
         $fileContents = file_get_contents(__DIR__ . "/../../fixtures/basic-ini-file-fixture.ini");
 
-        $iniFile = new IniFile($fileContents);
- 
-        $this->assertTrue($iniFile->has('property-3'));        
+        $this->iniFile = new IniFile($fileContents);
     }
 
+
+    function test_has_method_with_existing_value_without_section()
+    {
+        $this->assertTrue($this->iniFile->has('property-3'));        
+    }
+
+    function test_has_method_with_not_existing_value_without_section()
+    {
+        $this->assertFalse($this->iniFile->has('not-existing-property'));        
+    }
 
 }
