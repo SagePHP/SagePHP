@@ -29,6 +29,15 @@ class IniFile implements ConfigurationFileInterface
 
     public function has($key, $section = null) {
         $contents = $this->getContents();
+        
+        if(null !== $section) {
+            if(array_key_exists($section, $contents)) {
+                $contents = $contents[$section];
+            } else {
+                return false;
+            }
+        }
+
         return array_key_exists($key, $contents);
     }
 
