@@ -1,22 +1,22 @@
 <?php
 
-namespace SagePHP\Coniguration;
+namespace SagePHP\Configuration;
 
-use SagePHP\File\File;
 use SagePHP\Exception\NotFoundException;
+use SagePHP\File\FileInterface;
 
 class IniFile implements ConfigurationFileInterface
 {
     private $file;
-    private $contents = [];
+    private $contents = null;
 
-    public function __construct(File $file) {
+    public function __construct(FileInterface $file) {
        $this->file = $file; 
     }
 
     private function getFileContents() {
         if (null === $this->contents) {
-            $this->contents = parse_ini_file($this->file->load());
+            $this->contents = parse_ini_string($this->file->load());
         }
 
         return $this->contents;        
@@ -38,7 +38,7 @@ class IniFile implements ConfigurationFileInterface
 
     public function has($key) {
         $contents = $this->getFileContents();
-
+var_dump($contents);die;
         return array_key_exists($key, $contents);
     }
 

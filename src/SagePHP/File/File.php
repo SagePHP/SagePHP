@@ -2,9 +2,10 @@
 
 namespace SagePHP\File;
 
-class File implements FileInterface extends \SPLFileInfo
+class File extends \SPLFileInfo implements FileInterface 
 {
     public function load() {
+echo 'MEEEEEE-------------------------';
         return file_get_contents($this);
     }
 
