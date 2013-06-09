@@ -3,10 +3,58 @@
 namespace SagePHP\Configuration;
 
 use SagePHP\Exception\NotFoundException;
-use SagePHP\File\FileInterface;
 
 class IniFile implements ConfigurationFileInterface
 {
+    private $rawContents = null;
+    private $contents = null;
+
+    public function __construct($rawContents) {
+        $this->setRawContents($rawContents);
+    } 
+
+    private function setRawContents($rawContents) {
+        if (false === is_string($rawContents)) {
+            throw new \InvalidArgumentException("Raw contents needs to be a string", 400);
+        }
+        $this->rawContents = $rawContents;
+    }
+
+    private function getRawContents() {
+        return $this->rawContents;
+    }
+
+    public function get($key) {
+    }
+
+    public function has($key) {
+        $contents = $this->getContents();
+
+        return array_key_exists($key, $contents);
+    }
+
+    public function set($key, $value) {
+    }
+
+    private function parseRawContents($rawContents)
+    {
+        return parse_ini_string($rawContents);
+    }
+
+    private function setContents(Array $contents) 
+    {
+        $this->contents = $contents;
+    }
+
+    private function getContents() 
+    {
+        if(null === $this->contents) {
+            $this->contents = $this->parseRawContents($this->getRawContents());
+        }
+        return $this->contents;
+    }
+
+/*
     private $file;
     private $contents = null;
 
@@ -68,5 +116,5 @@ var_dump($contents);die;
         $file = $this->file;
         return $file->save(implode("\r\n", $res));
     }
-
+*/
 } 
