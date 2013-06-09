@@ -1,5 +1,7 @@
 <?php
 
+namespace SagePHP\File;
+
 class File implements FileInterface extends \SPLFileInfo
 {
     public function load() {
