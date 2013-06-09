@@ -3,6 +3,7 @@
 namespace SagePHP\Coniguration;
 
 use SagePHP\File\File;
+use SagePHP\Exception\NotFoundException;
 
 class IniFile implements ConfigurationFileInterface
 {
@@ -31,6 +32,41 @@ class IniFile implements ConfigurationFileInterface
         if(array_key_exists($key, $contents)) {
             return $contents[$key];
         }
+        
+        throw new NotFoundException("Property $key not found");
+    }
+
+    public function has($key) {
+        $contents = $this->getFileContents();
+
+        return array_key_exists($key, $contents);
+    }
+
+    public function set($key, $value) {
+        $contents = $this->getFileContents();
+        $contents[$key] = $value;
+        $this->setFileContents($contents);
+        $this->save();         
+    }
+
+    private function save() {
+        $contents = $this->getFileContents();
+
+        // process array to ini format
+        $res = array();
+        foreach ($contents as $key => $val) {
+            if (is_array($val)) {
+                $res[] = "[$key]";
+                foreach($val as $skey => $sval) {
+                    $res[] = "$skey = ".(is_numeric($sval) ? $sval : '"'.$sval.'"');
+                }
+            } else {
+                $res[] = "$key = ".(is_numeric($val) ? $val : '"'.$val.'"');
+            }
+        }
+
+        $file = $this->file;
+        return $file->save(implode("\r\n", $res));
     }
 
 } 
