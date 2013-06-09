@@ -27,9 +27,8 @@ class IniFile implements ConfigurationFileInterface
     public function get($key) {
     }
 
-    public function has($key) {
+    public function has($key, $section = null) {
         $contents = $this->getContents();
-
         return array_key_exists($key, $contents);
     }
 
@@ -38,7 +37,7 @@ class IniFile implements ConfigurationFileInterface
 
     private function parseRawContents($rawContents)
     {
-        return parse_ini_string($rawContents);
+        return parse_ini_string($rawContents, $processSections = true);
     }
 
     private function setContents(Array $contents) 

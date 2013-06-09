@@ -24,4 +24,8 @@ class IniFileTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($this->iniFile->has('not-existing-property'));        
     }
 
+    function test_has_method_with_section_with_existing_value()
+    {
+        $this->assertTrue($this->iniFile->has('property-1', 'section-1'));        
+    }
 }

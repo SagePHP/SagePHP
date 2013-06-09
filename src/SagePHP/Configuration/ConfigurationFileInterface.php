@@ -8,5 +8,5 @@ interface ConfigurationFileInterface
 
     public function set($key, $value);
     
-    public function has($key);
+    public function has($key, $section = null);
 }
