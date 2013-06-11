@@ -9,22 +9,22 @@ class IniFile implements ConfigurationFileInterface
     private $rawContents = null;
     private $contents = null;
 
-    public function __construct($rawContents) {
+    public function __construct($rawContents)
+    {
         $this->setRawContents($rawContents);
-    } 
+    }
 
-    private function setRawContents($rawContents) {
+    private function setRawContents($rawContents)
+    {
         if (false === is_string($rawContents)) {
             throw new \InvalidArgumentException("Raw contents needs to be a string", 400);
         }
         $this->rawContents = $rawContents;
     }
 
-    private function getRawContents() {
+    private function getRawContents()
+    {
         return $this->rawContents;
-    }
-
-    public function get($key) {
     }
 
     public function has($key, $section = null) {
@@ -39,6 +39,16 @@ class IniFile implements ConfigurationFileInterface
         }
 
         return array_key_exists($key, $contents);
+    }
+
+    public function get($key) {
+        $contents = $this->contents();
+
+        if(array_key_exists($key, $contents)) {
+            return $contents[$key];
+        }
+        
+        throw new NotFoundException("Property $key not found");
     }
 
     public function set($key, $value) {
@@ -63,12 +73,6 @@ class IniFile implements ConfigurationFileInterface
     }
 
 /*
-    private $file;
-    private $contents = null;
-
-    public function __construct(FileInterface $file) {
-       $this->file = $file; 
-    }
 
     private function getFileContents() {
         if (null === $this->contents) {
@@ -81,15 +85,6 @@ class IniFile implements ConfigurationFileInterface
     private function setFileContents(array $contents) {
         $this->contents = $contents;
     }
-
-    public function get($key) {
-        $contents = $this->getFileContents();
-
-        if(array_key_exists($key, $contents)) {
-            return $contents[$key];
-        }
-        
-        throw new NotFoundException("Property $key not found");
     }
 
     public function has($key) {
