@@ -36,19 +36,19 @@ class IniFileTest extends \PHPUnit_Framework_TestCase
 
     function testGetMethodWithExistingValueWithoutSection()
     {
-        $this->assertTrue($this->iniFile->has('property-3'));        
+        $this->assertEquals('value-3', $this->iniFile->get('property-3'));        
     }
 
-    function testGetMethodWithExistingValueWithSection()
-    {
-        $this->assertTrue($this->iniFile->has('property-2','section-1'));        
-    }
+   function testGetMethodWithExistingValueWithSection()
+   {
+        $this->assertEquals('value-1', $this->iniFile->get('property-1', 'section-1'));        
+   }
 
-     /**
-      * @expectedException NotFoundException
-      */
-    function testGetMethodWithNotExistingValueWithoutSection()
-    {
-        $this->iniFile->has('property-1');        
-    }
+#   /**
+#    * @expectedException NotFoundException
+#    */
+#  function testGetMethodWithNotExistingValueWithoutSection()
+#  {
+#      $this->iniFile->get('property-1');        
+#  }
 }

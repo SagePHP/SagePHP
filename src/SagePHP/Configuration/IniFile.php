@@ -28,21 +28,16 @@ class IniFile implements ConfigurationFileInterface
     }
 
     public function has($key, $section = null) {
-        $contents = $this->getContents();
-        
-        if(null !== $section) {
-            if(array_key_exists($section, $contents)) {
-                $contents = $contents[$section];
-            } else {
-                return false;
-            }
-        }
-
-        return array_key_exists($key, $contents);
+        try {
+            $contents = $this->getContents($section);
+            return array_key_exists($key, $contents);
+        } catch(\Exception $e) {
+            return false;
+        } 
     }
 
-    public function get($key) {
-        $contents = $this->contents();
+    public function get($key, $section = null) {
+        $contents = $this->getContents($section);
 
         if(array_key_exists($key, $contents)) {
             return $contents[$key];
@@ -64,11 +59,20 @@ class IniFile implements ConfigurationFileInterface
         $this->contents = $contents;
     }
 
-    private function getContents() 
+    private function getContents($section = null) 
     {
         if(null === $this->contents) {
             $this->contents = $this->parseRawContents($this->getRawContents());
         }
+
+        if(null !== $section) {
+            if(array_key_exists($section, $this->contents)) {
+                return $this->contents[$section];
+            } else {
+                throw new NotFoundException("Section $section not found");
+            }
+        }
+
         return $this->contents;
     }
 
