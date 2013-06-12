@@ -1,0 +1,11 @@
+parameters:
+
+
+services:
+
+    exec:
+        class: SagePHP\System\exec
+
+    git:
+        class: SagePHP\VCS\git
+        arguments: [@exec]
