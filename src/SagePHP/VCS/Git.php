@@ -11,6 +11,7 @@ class Git
 {
     /**
      * helper process execution system
+     *
      * @var Process
      */
     private $exec = null;
