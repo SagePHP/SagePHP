@@ -20,6 +20,13 @@ class Git
          $this->exec = $exec;
     }
 
+    /**
+     * Executes a command
+     * 
+     * @param  Command $command 
+     * 
+     * @return integer the command exit code
+     */
     private function execute(Command $command)
     {
         $exec = $this->exec;
@@ -45,6 +52,15 @@ class Git
         return $code;
     }
 
+    /**
+     * Clones a git repository.
+     * 
+     * @param  string $uri    the git url
+     * @param  string $folder the folder to clone to, if not set defaults to repository name
+     * @param  string $branch the branch to checkout, defaults to "main" branch (as set in repository config)
+     * 
+     * @return boolean true on success
+     */
     public function cloneRepository($uri, $folder = null, $branch = null)
     {
         $command = new Command;
@@ -61,7 +77,7 @@ class Git
             $command->option('branch', $branch);
         }
 
-        $this->execute($command);
+        return 0 === $this->execute($command);
         
     }
 }
