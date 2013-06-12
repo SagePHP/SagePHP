@@ -30,7 +30,7 @@ class Exec
      * 
      * @param string $command
      */
-    public function __construct($command)
+    public function __construct($command = null)
     {
         $this->setCommand($command);
     }
@@ -131,5 +131,10 @@ class Exec
         }
         
         echo sprintf("\n%s %s\n", $typeStr, $messageText);
+    }
+
+    public function getExitCode()
+    {
+        return $this->getProcessExecutor()->getExitCode();
     }
 }

@@ -9,7 +9,7 @@ class Exectest extends \PHPUnit_Framework_TestCase
         $exec = new Exec('ls -ls');
         $code = $exec->run();
 
-        $this->assertEquals(0, $code);
+        $this->assertEquals(0, $exec->getExitCode());
 
         $output = $exec->getOutput();
 
@@ -27,7 +27,7 @@ class Exectest extends \PHPUnit_Framework_TestCase
         $exec = new Exec('lszxczxzxc -ls');
         $code = $exec->run();
 
-        $this->assertEquals(127, $code);
+        $this->assertEquals(127, $exec->getExitCode());
 
         $output = $exec->getOutput();
 
