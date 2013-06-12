@@ -1,6 +1,7 @@
 <?php
 
 use SagePHP\Configuration\IniFile;
+use SagePHP\Exception\NotFoundException;
 
 class IniFileTest extends \PHPUnit_Framework_TestCase
 {
@@ -44,11 +45,11 @@ class IniFileTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('value-1', $this->iniFile->get('property-1', 'section-1'));        
    }
 
-#   /**
-#    * @expectedException NotFoundException
-#    */
-#  function testGetMethodWithNotExistingValueWithoutSection()
-#  {
-#      $this->iniFile->get('property-1');        
-#  }
+    /**
+     * @expectedException SagePHP\Exception\NotFoundException
+     */
+    function testGetMethodWithNotExistingValueWithoutSection()
+    {
+       $this->iniFile->get('property-1');        
+    }
 }
