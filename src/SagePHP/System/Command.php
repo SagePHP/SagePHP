@@ -13,7 +13,7 @@ class Command
      * adds a CLI part.
      * This function exposes the full functionality to end users
      * 
-     * @param mixwd  $item   the item to add to the CLI
+     * @param mixed  $item   the item to add to the CLI
      * @param boolean $quoted should $item be encloded in double quotes?
      */
     public function add($item, $quoted = false)
