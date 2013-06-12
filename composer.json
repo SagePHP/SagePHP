@@ -2,6 +2,8 @@
     "require": {
         "symfony/class-loader": "*",
         "symfony/process": "dev-master",
-        "symfony/dependency-injection": "dev-master"
+        "symfony/dependency-injection": "dev-master",
+        "symfony/yaml": "dev-master",
+        "symfony/config": "dev-master"
     }
 }

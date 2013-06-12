@@ -12,14 +12,14 @@ class Sage
      * 
      * @var ContainerBuilder
      */
-    $container = null;
+    private $container = null;
 
     /**
      * path to di config file
      * 
      * @var string
      */
-    $diFile = null;
+    private $diFile = null;
 
     /**
      * contructs the class.
@@ -47,7 +47,11 @@ class Sage
             $container = new ContainerBuilder();
             $loader = new YamlFileLoader($container, new FileLocator(__DIR__));
             $loader->load($this->diFile);
+
+            $this->container = $container;
         }
+
+        return $this->container;
     }
 
     /**

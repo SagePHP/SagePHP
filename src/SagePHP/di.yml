@@ -1,11 +1,3 @@
-parameters:
-
-
-services:
-
-    exec:
-        class: SagePHP\System\exec
-
-    git:
-        class: SagePHP\VCS\git
-        arguments: [@exec]
+imports:
+    - { resource: VCS/di.yml }
+    - { resource: System/di.yml }
