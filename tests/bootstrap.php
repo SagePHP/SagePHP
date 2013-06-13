@@ -10,8 +10,10 @@ $loader = new UniversalClassLoader();
 $loader->useIncludePath(true);
 
 // ... register namespaces and prefixes here - see below
-$loader->registerNamespaces(array(
-    'SagePHP' => __DIR__.'/../src/',
-));
+$loader->registerNamespaces(
+    array(
+        'SagePHP' => __DIR__.'/../src/',
+    )
+);
 
 $loader->register();
