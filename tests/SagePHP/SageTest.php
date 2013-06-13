@@ -12,4 +12,13 @@ class SageTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('SagePHP\VCS\Git', $git);
     }
+
+    /**
+     * @expectedException Symfony\Component\DependencyInjection\Exception\InvalidArgumentException
+     */
+    public function testGetNotFoundAlias()
+    {
+        $sage = new Sage;
+        $git = $sage->get('Git12345678909876543');
+    }
 }
