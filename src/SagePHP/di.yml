@@ -1,0 +1,3 @@
+imports:
+    - { resource: VCS/di.yml }
+    - { resource: System/di.yml }
