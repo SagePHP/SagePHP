@@ -21,4 +21,5 @@ class SageTest extends \PHPUnit_Framework_TestCase
         $sage = new Sage;
         $git = $sage->get('Git12345678909876543');
     }
+
 }
