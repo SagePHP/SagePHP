@@ -1,4 +1,0 @@
-services:
-
-    exec:
-        class: SagePHP\System\exec
