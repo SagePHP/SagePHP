@@ -1,5 +1,7 @@
 <?php
 
+namespace SagePHP\Test;
+
 use SagePHP\Configuration\IniFile;
 use SagePHP\Exception\NotFoundException;
 
@@ -7,7 +9,7 @@ class IniFileTest extends \PHPUnit_Framework_TestCase
 {
     private $iniFile;
 
-    function setUp()
+    protected function setUp()
     {
         $this->fileContents = file_get_contents(__DIR__ . "/../../fixtures/basic-ini-file-fixture.ini");
 
@@ -15,7 +17,7 @@ class IniFileTest extends \PHPUnit_Framework_TestCase
     }
 
 
-    function test_has_method_with_existing_value_without_section()
+    function testHas_method_with_existing_value_without_section()
     {
         $this->assertTrue($this->iniFile->has('property-3'));        
     }

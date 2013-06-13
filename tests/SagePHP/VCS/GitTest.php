@@ -1,5 +1,7 @@
 <?php
 
+namespace SagePHP\Test;
+
 use SagePHP\VCS\Git;
 use SagePHP\System\Exec;
 

@@ -1,5 +1,7 @@
 <?php
 
+namespace SagePHP\Test;
+
 use SagePHP\System\Exec;
 
 class Exectest extends \PHPUnit_Framework_TestCase

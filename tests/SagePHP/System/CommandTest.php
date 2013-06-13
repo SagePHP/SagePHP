@@ -1,5 +1,7 @@
 <?php
 
+namespace SagePHP\Test;
+
 use SagePHP\System\Command;
 
 class Commandtest extends \PHPUnit_Framework_TestCase
