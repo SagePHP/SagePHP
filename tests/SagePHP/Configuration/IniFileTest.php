@@ -5,78 +5,76 @@ namespace SagePHP\Test;
 use SagePHP\Configuration\IniFile;
 use SagePHP\Exception\NotFoundException;
 
-class IniFileTest extends \PHPUnit_Framework_TestCase
+class IniFileTest extends \PHPUnitFrameworkTestCase
 {
     private $iniFile;
 
     protected function setUp()
     {
-        $this->fileContents = file_get_contents(__DIR__ . "/../../fixtures/basic-ini-file-fixture.ini");
+        $this->fileContents = fileGetContents(_DIR__ . "/../../fixtures/basic-ini-file-fixture.ini");
 
         $this->iniFile = new IniFile($this->fileContents);
     }
 
 
-    function testHas_method_with_existing_value_without_section()
+    public function testHasMethodWithExistingValueWithoutSection()
     {
-        $this->assertTrue($this->iniFile->has('property-3'));        
+        $this->assertTrue($this->iniFile->has('property-3'));
     }
 
-    function test_has_method_with_not_existing_value_without_section()
+    public function testHasMethodWithNotExistingValueWithoutSection()
     {
-        $this->assertFalse($this->iniFile->has('not-existing-property'));        
+        $this->assertFalse($this->iniFile->has('not-existing-property'));
     }
 
-    function test_has_method_with_section_with_existing_value()
+    public function testHasMethodWithSectionWithExistingValue()
     {
-        $this->assertTrue($this->iniFile->has('property-1', 'section-1'));        
+        $this->assertTrue($this->iniFile->has('property-1', 'section-1'));
     }
 
-    function testHasMethodWithSectionWithNotExistingValue()
+    public function testHasMethodWithSectionWithNotExistingValue()
     {
-        $this->assertFalse($this->iniFile->has('property-3', 'section-1'));        
+        $this->assertFalse($this->iniFile->has('property-3', 'section-1'));
     }
 
-    function testGetMethodWithExistingValueWithoutSection()
+    public function testGetMethodWithExistingValueWithoutSection()
     {
-        $this->assertEquals('value-3', $this->iniFile->get('property-3'));        
+        $this->assertEquals('value-3', $this->iniFile->get('property-3'));
     }
 
-    function testGetMethodWithExistingValueWithSection()
+    public function testGetMethodWithExistingValueWithSection()
     {
-        $this->assertEquals('value-1', $this->iniFile->get('property-1', 'section-1'));        
+        $this->assertEquals('value-1', $this->iniFile->get('property-1', 'section-1'));
     }
 
     /**
      * @expectedException SagePHP\Exception\NotFoundException
      */
-    function testGetMethodWithNotExistingValueWithoutSection()
+    public function testGetMethodWithNotExistingValueWithoutSection()
     {
-        $this->iniFile->get('property-1');        
+        $this->iniFile->get('property-1');
     }
 
-    function testSetMethodWithoutSection()
+    public function testSetMethodWithoutSection()
     {
         $this->iniFile->set('new-property', 'new value');
-        $this->assertEquals('new value', $this->iniFile->get('new-property')); 
+        $this->assertEquals('new value', $this->iniFile->get('new-property'));
     }
 
-    function testSetMethodWithExistingSection()
+    public function testSetMethodWithExistingSection()
     {
         $this->iniFile->set('new-property', 'new value', 'section-1');
-        $this->assertEquals('new value', $this->iniFile->get('new-property', 'section-1')); 
+        $this->assertEquals('new value', $this->iniFile->get('new-property', 'section-1'));
     }
     
-    function testSetMethodWithNewSection()
+    public function testSetMethodWithNewSection()
     {
         $this->iniFile->set('new-property', 'new value', 'new-section');
-        $this->assertEquals('new value', $this->iniFile->get('new-property', 'new-section')); 
+        $this->assertEquals('new value', $this->iniFile->get('new-property', 'new-section'));
     }
 
-    function testToString()
+    public function testToString()
     {
         $this->assertEquals($this->fileContents, (string) $this->iniFile);
     }
-
 }
-
