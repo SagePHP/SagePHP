@@ -3,10 +3,24 @@
 #     - { resource: System/di.yml }
 
 services:
-
+    # execute system calls
     exec:
         class: SagePHP\System\exec
 
+    # GIT abstraction
     git:
         class: SagePHP\VCS\git
         arguments: [@exec]
+
+    # private, used for dialog classes
+    _console.dialog.helper:
+        class: Symfony\Component\Console\Helper\DialogHelper
+
+    # a fancy version of echo, used to write to stdout and stderr
+    console.writer:
+        class: Symfony\Component\Console\Output\ConsoleOutput
+
+    # ask the user for some information
+    dialog.prompt:
+        class: SagePHP\System\Dialog\PromptDialog
+        arguments: [@console.writer, @_console.dialog.helper]
