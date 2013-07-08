@@ -1,5 +1,0 @@
-services:
-
-    git:
-        class: SagePHP\VCS\git
-        arguments: [@exec]
