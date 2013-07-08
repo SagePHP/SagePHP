@@ -12,7 +12,7 @@ class PromptDialog extends AbstractDialog
 
     /**
      * {@inheritdoc}
-     * 
+     *
      * @return string
      */
     public function show()
@@ -51,7 +51,7 @@ class PromptDialog extends AbstractDialog
             throw new \InvalidArgumentException('Question should be a string');
         }
 
-        $this->question = $question;
+        $this->question = trim($question) . " " ;
 
         return $this;
     }

@@ -23,15 +23,15 @@ class PromptDialogTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($promptDialog->getDefault());
 
         $promptDialog->setQuestion('foo');
-        $this->assertEquals('foo', $promptDialog->getQuestion());
-        
+        $this->assertEquals('foo ', $promptDialog->getQuestion());
+
         $promptDialog->setDefault('default');
         $this->assertEquals('default', $promptDialog->getDefault());
     }
 
     public function testPromptDialog()
     {
-            
+
             $this->dialogHelper
                 ->expects($this->once())
                 ->method('ask')
