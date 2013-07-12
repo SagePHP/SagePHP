@@ -12,6 +12,14 @@ services:
         class: SagePHP\VCS\git
         arguments: [@exec]
 
+    # configuration
+    config.ini:
+        class: SagePHP\Component\Parser\Ini\ini
+
+    config.php-ini:
+        class: SagePHP\Configuration\php-ini
+        arguments: [@config.ini]
+
     # private, used for dialog classes
     _console.dialog.helper:
         class: Symfony\Component\Console\Helper\DialogHelper

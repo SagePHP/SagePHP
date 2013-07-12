@@ -3,21 +3,65 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ee46cec29c42690a68bc2ee82477acc6",
+    "hash": "9f57cced36d91fa2719518020709105a",
     "packages": [
         {
+            "name": "sage-php/ini",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/SagePHP/php-ini.git",
+                "reference": "0fd692ef9feb968bf523208aff731d808a879834"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/SagePHP/php-ini/zipball/0fd692ef9feb968bf523208aff731d808a879834",
+                "reference": "0fd692ef9feb968bf523208aff731d808a879834",
+                "shasum": ""
+            },
+            "require-dev": {
+                "symfony/class-loader": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nuno Costa",
+                    "email": "nuno@francodacosta.com",
+                    "homepage": "http://www.francodacosta.com"
+                }
+            ],
+            "description": "Ini file manipulation. supports sections and comments",
+            "keywords": [
+                "configuration",
+                "ini",
+                "ini file",
+                "parser",
+                "php"
+            ],
+            "time": "2013-07-12 18:11:56"
+        },
+        {
             "name": "symfony/class-loader",
-            "version": "v2.3.0",
+            "version": "v2.3.1",
             "target-dir": "Symfony/Component/ClassLoader",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ClassLoader.git",
-                "reference": "v2.3.0"
+                "reference": "v2.3.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/v2.3.0",
-                "reference": "v2.3.0",
+                "url": "https://api.github.com/repos/symfony/ClassLoader/zipball/v2.3.1",
+                "reference": "v2.3.1",
                 "shasum": ""
             },
             "require": {
@@ -62,17 +106,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "a1f7da9011af8f9bdf1995fe9be6aa359a394019"
+                "reference": "8ecf5c2d51ac0c26e16d98ec87a4636d89f62558"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/a1f7da9011af8f9bdf1995fe9be6aa359a394019",
-                "reference": "a1f7da9011af8f9bdf1995fe9be6aa359a394019",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/8ecf5c2d51ac0c26e16d98ec87a4636d89f62558",
+                "reference": "8ecf5c2d51ac0c26e16d98ec87a4636d89f62558",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/filesystem": ">=2.3,<3.0"
+                "symfony/filesystem": "~2.3"
             },
             "type": "library",
             "extra": {
@@ -101,7 +145,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2013-06-11 07:15:38"
+            "time": "2013-07-11 19:37:15"
         },
         {
             "name": "symfony/console",
@@ -110,19 +154,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "699ccfc18fff7912c08021de878477f0724850b3"
+                "reference": "c374f12670a4e6b6b72ef2a2d58b75534d94609c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/699ccfc18fff7912c08021de878477f0724850b3",
-                "reference": "699ccfc18fff7912c08021de878477f0724850b3",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/c374f12670a4e6b6b72ef2a2d58b75534d94609c",
+                "reference": "c374f12670a4e6b6b72ef2a2d58b75534d94609c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "symfony/event-dispatcher": ">=2.1,<3.0"
+                "symfony/event-dispatcher": "~2.1"
             },
             "suggest": {
                 "symfony/event-dispatcher": ""
@@ -154,7 +198,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2013-06-11 07:15:38"
+            "time": "2013-07-11 19:37:15"
         },
         {
             "name": "symfony/dependency-injection",
@@ -163,20 +207,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/DependencyInjection.git",
-                "reference": "2b55671e35980adc39d0820a4826448803fabd7c"
+                "reference": "ddbebb845938e14c2794a2b6266674bc4b910a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/2b55671e35980adc39d0820a4826448803fabd7c",
-                "reference": "2b55671e35980adc39d0820a4826448803fabd7c",
+                "url": "https://api.github.com/repos/symfony/DependencyInjection/zipball/ddbebb845938e14c2794a2b6266674bc4b910a5e",
+                "reference": "ddbebb845938e14c2794a2b6266674bc4b910a5e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "symfony/config": ">=2.2,<3.0",
-                "symfony/yaml": ">=2.0,<3.0"
+                "symfony/config": "~2.2",
+                "symfony/yaml": "~2.0"
             },
             "suggest": {
                 "symfony/config": "",
@@ -210,7 +254,7 @@
             ],
             "description": "Symfony DependencyInjection Component",
             "homepage": "http://symfony.com",
-            "time": "2013-06-11 07:15:38"
+            "time": "2013-07-12 10:38:48"
         },
         {
             "name": "symfony/filesystem",
@@ -266,12 +310,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "75c810176f8e069714cef8696d7ecc3aa86e8168"
+                "reference": "998d489806011e1d790db5fc0284e6083cc8ea8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/75c810176f8e069714cef8696d7ecc3aa86e8168",
-                "reference": "75c810176f8e069714cef8696d7ecc3aa86e8168",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/998d489806011e1d790db5fc0284e6083cc8ea8b",
+                "reference": "998d489806011e1d790db5fc0284e6083cc8ea8b",
                 "shasum": ""
             },
             "require": {
@@ -304,7 +348,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2013-05-16 07:54:39"
+            "time": "2013-07-08 13:37:01"
         },
         {
             "name": "symfony/yaml",
@@ -313,12 +357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "82100c7732c95452702d11433aad50988700d36c"
+                "reference": "7a6c10b37cb4335dcca038da760f29915a374b81"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/82100c7732c95452702d11433aad50988700d36c",
-                "reference": "82100c7732c95452702d11433aad50988700d36c",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/7a6c10b37cb4335dcca038da760f29915a374b81",
+                "reference": "7a6c10b37cb4335dcca038da760f29915a374b81",
                 "shasum": ""
             },
             "require": {
@@ -351,7 +395,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2013-05-16 07:54:39"
+            "time": "2013-07-11 19:37:15"
         }
     ],
     "packages-dev": [
@@ -366,7 +410,8 @@
         "symfony/dependency-injection": 20,
         "symfony/yaml": 20,
         "symfony/config": 20,
-        "symfony/console": 20
+        "symfony/console": 20,
+        "sage-php/ini": 20
     },
     "platform": [
 
